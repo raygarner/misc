@@ -15,22 +15,22 @@ uninstall:
 	    $(DEST)/npc $(DEST)/pw
 
 cf:
-	$(CC) -Wall cf.c -o cf
+	$(CC) $(CFLAGS) cf.c -o cf
 
 fb:
-	$(CC) -Wall fb.c -o fb
+	$(CC) $(CFLAGS) fb.c -o fb
 
 fr:
-	$(CC) -Wall fr.c -o fr
+	$(CC) $(CFLAGS) fr.c -o fr
 
 ipc:
-	$(CC) -Wall ipc.c -o ipc
+	$(CC) $(CFLAGS) ipc.c -o ipc
 
 md:
-	$(CC) -Wall md.c -o md
+	$(CC) $(CFLAGS) md.c -o md
 
 npc:
-	$(CC) -Wall npc.c -o npc
+	$(CC) $(CFLAGS) npc.c -o npc
 
 pw:
-	$(CC) -Wall pw.c -o pw
+	$(CC) $(CFLAGS) pw.c -o pw
