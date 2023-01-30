@@ -1,14 +1,18 @@
-all: cf fb fr ipc md npc pw
+DEST = /usr/bin
+CFLAGS = -Wall
+EXES = cf fb fr ipc md npc pw
+
+all: $(EXES)
 
 clean:
-	rm -f cf fb fr ipc md npc pw
+	rm -f $(EXES)
 
 install: all
-	cp -f cf fb fr ipc md npc pw /usr/bin
+	cp -f $(EXES) $(DEST)
 
 uninstall:
-	rm -f /usr/bin/cf /usr/bin/fb /usr/bin/fr /usr/bin/ipc /usr/bin/md \
-	    /usr/bin/npc /usr/bin/pw
+	rm -f $(DEST)/cf $(DEST)/fb $(DEST)/fr $(DEST)/ipc $(DEST)/md \
+	    $(DEST)/npc $(DEST)/pw
 
 cf:
 	$(CC) -Wall cf.c -o cf
