@@ -1,7 +1,7 @@
 all: cf fb fr ipc md npc pw
 
 clean:
-	rm -f cf fb fr ipc md npc mw
+	rm -f cf fb fr ipc md npc pw
 
 install: all
 	cp -f cf fb fr ipc md npc pw /usr/bin
