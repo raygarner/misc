@@ -5,13 +5,16 @@ Any input is supplied as a command line argument.
 Default destination directory for installation is /usr/bin
 
 Build:
-make
+$ make
 
 Install:
-sudo make install
+$ sudo make install
 
 Uninstall:
-sudo make uninstall
+$ sudo make uninstall
+
+repo: https://github.com/raygarner/tools
+contact: ray@perfectcast.co.uk
 
 
 cf
@@ -37,7 +40,9 @@ Key: B major (5#)
 
 fb
 ==
-Displays modes of the major scale on a guitar fretboard
+Displays modes of the major scale on a guitar fretboard. Takes as input at fret
+of the E string to start on and a mode of the major scale (eg 6 for Aeolian 
+or 2 for Dorian)
 
 $ fb 5 6
 | 6|  | 7|  | 1|  | 2| 3|  | 4|  | 5| 6|  | 7|  | 1|  | 2| 3|  | 4|  | 5|
@@ -96,8 +101,8 @@ Bb Aeolian
 
 npc
 ===
-NPC generator following the rules of Chris Gonnermans Basic Fantasy RPG.
-Takes class and level as optional arguments
+NPC generator following the rules of Chris Gonnermans Basic Fantasy RPG. Takes 
+class and level as optional arguments
 
 $ npc f 5
 Level 5 halfling fighter
