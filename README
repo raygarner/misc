@@ -15,6 +15,7 @@ $ sudo make uninstall
 
 repo: https://github.com/raygarner/tools
 contact: ray@perfectcast.co.uk
+license: see COPYING
 
 
 cf
