@@ -1,6 +1,6 @@
 Abstract
 ========
-Miscellaneous little CLI programs written in C with just the standard library.
+Miscellaneous little CLI programs written in C with just the standard libary.
 Any input is supplied as a command line argument.
 Default destination directory for installation is /usr/bin
 
@@ -17,7 +17,7 @@ sudo make uninstall
 cf
 ==
 Key signature calculator. Takes a number as an argument as if the circle of
-fifths is labeled like a clock
+fifths is labelled like a clock
 
 $ cf 5
 Key: B major (5#)
