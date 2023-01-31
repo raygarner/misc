@@ -19,7 +19,7 @@ cf
 Key signature calculator. Takes a number as an argument as if the circle of
 fifths is labelled like a clock
 
-$ cf 5 (for b major)
+$ cf 5
 Key: B major (5#)
 ------------------
 
