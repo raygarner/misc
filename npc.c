@@ -57,8 +57,8 @@ read_class(char class)
 	case 'm':
 		return MAGIC_USER;
 	}
-	printf("Invalid class. Choose fighter, cleric, magic-user or "\
-	       "thief\n");
+	printf("Invalid class. Choose (f)ighter, (c)leric, (m)agic-user or "\
+	       "(t)hief\n");
 	exit(-1);
 }
 
@@ -127,6 +127,11 @@ main(int argc, char *argv[])
 	int class, level, race, abilities[ABILITIES], hp = 0, a, hd;
 	char *mod;
 
+	if (argc < 3) {
+		printf("Please pass class and level as args\n");
+		printf("eg: npc f 5\n");
+		return 1;
+	}
 	srand(time(NULL));
 	class = argc > 1 ? read_class(tolower(argv[1][0])) : rand() % CLASSES;
 	level = argc > 2 ? atoi(argv[2]) : rand() % MAX_LEVEL + 1;

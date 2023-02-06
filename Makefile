@@ -34,3 +34,4 @@ npc:
 
 pw:
 	$(CC) $(CFLAGS) pw.c -o pw
+

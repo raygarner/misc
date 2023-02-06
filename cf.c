@@ -128,6 +128,7 @@ main(int argc, char *argv[])
 
 	if (argc < 2) {
 		printf("Enter a number for the circle: cf <n>\n");
+		printf("eg: cf 5\n");
 		return -1;
 	}
 	k = atoi(argv[1]);

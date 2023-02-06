@@ -87,8 +87,14 @@ main(int argc, char *argv[])
 {
 	int fretboard[STRINGS][FRETS], s, f, m;
 
-	m = argc < 3 ? 0 : atoi(argv[2]) - 1;
-	f = argc < 2 ? 8 : atoi(argv[1]);
+	if (argc < 3) {
+		printf("Please give start fret and mode as args\n");
+		printf("eg: fb 5 6\n");
+		return 1;
+	} else {
+		m = atoi(argv[2]) - 1;
+		f = atoi(argv[1]);
+	}
 	for (s = 0; s < STRINGS; s++)
 		init_string(fretboard[s]);
 	write_string(fretboard[SIXTH], f+7*0, m);

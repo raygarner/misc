@@ -90,9 +90,11 @@ main(int argc, char *argv[])
 	int i, n = 0, len, wordlen, r;
 	FILE *f;
 
-	if (argc < 2)
-		strcpy(dictpath, DICTPATH);
-	else
+	if (argc < 2) {
+		printf("Please pass dictionary file as arg\n");
+		printf("eg: pw words.txt\n");
+		return 1;
+	} else
 		strcpy(dictpath, argv[1]);
 	f = fopen(dictpath, "r");
 	if (f == NULL) {
@@ -105,11 +107,10 @@ main(int argc, char *argv[])
 	for (i = 0; i < WORDCOUNT; i++) {
 		tmp = get_random_word(len, dictpath);
 		wordlen = strlen(tmp);
-		if (i == WORDCOUNT - 1) {
+		if (i == WORDCOUNT - 1)
 			map(toupper, tmp, wordlen);
-		} else {
+		else
 			map(tolower, tmp, wordlen);
-		}
 		strcpy(&pass[n], tmp);
 		n += wordlen;
 		pass[n++] = '!';

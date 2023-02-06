@@ -103,7 +103,7 @@ Bb Aeolian
 npc
 ===
 NPC generator following the rules of Chris Gonnermans Basic Fantasy RPG. Takes 
-class and level as optional arguments
+class and level as arguments
 
 $ npc f 5
 Level 5 halfling fighter

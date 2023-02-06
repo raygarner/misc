@@ -123,11 +123,12 @@ int
 main(int argc, char *argv[])
 {
 	int mask_width, address, mask;
-	char ipstr[DISPLAYWIDTH], buf[WIDTH];
+	char ipstr[DISPLAYWIDTH];
 
 	if (argc < 2) {
-		scanf("%s", buf);
-		mask_width = parse_ip(buf, &address);
+		printf("Please supply a CIDR IP as an arg\n");
+		printf("eg: ipc 192.168.0.1/24\n");
+		return 1;
 	} else {
 		mask_width = parse_ip(argv[1], &address);
 	}

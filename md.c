@@ -147,7 +147,8 @@ main(int argc, char *argv[])
 	int key_freq[TONES][DEGREES], note_count;
 
 	if (argc < 2) {
-		printf("Please pass notes like: md cnf+\n");
+		printf("Please pass notes as args\n");
+		printf("eg: md cnf+\n");
 		return -1;
 	}
 	init_key_freq(key_freq);
