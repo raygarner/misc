@@ -118,8 +118,8 @@ HP:  25
 
 pw
 ==
-Password generator using format word!word!WORD!xy. If no dictionary is supplied
-then /usr/share/dict/words is used
+Password generator using format word!word!WORD!xy. Takes a dictionary file as
+an argument
 
 $ pw words.txt
 polynomial!parricides!CHRIS!56
