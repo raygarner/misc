@@ -1,7 +1,7 @@
 .POSIX:
 
 DEST = /usr/bin
-EXES = cf fb fr ipc md npc pw
+EXES = afn cf fb fr ipc md npc pw
 
 all: $(EXES)
 
@@ -18,6 +18,9 @@ install: all
 uninstall:
 	@$(foreach EXE,$(EXES), rm -f $(DEST)/$(EXE))
 
+afn:
+	$(CC) $(CFLAGS) $@.c -o $@
+	
 cf:
 	$(CC) $(CFLAGS) $@.c -o $@
 
@@ -39,4 +42,4 @@ npc:
 pw:
 	$(CC) $(CFLAGS) $@.c -o $@
 
-.PHONY: all clean install uninstall
+.PHONY: all options clean install uninstall

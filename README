@@ -18,6 +18,20 @@ contact: ray@perfectcast.co.uk
 license: see COPYING
 
 
+afn
+===
+Plaintext affine cipher. Takes a filename, mode and key as args. Works on
+text files, doesn't touch whitespace or control characters.
+
+$ cat alpha.txt
+abcdefghijlkmnopqrstuvwxyz
+$ afn alpha.txt e 5
+Xcny&1<GR]hs~+6ALWbmx%0;FQ
+$ afn alpha.txt e 5 > out.txt
+$ afn out.txt d 5
+abcdefghijklmnopqrstuvwxyz
+
+
 cf
 ==
 Key signature calculator. Takes a number as an argument as if the circle of
