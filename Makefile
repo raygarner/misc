@@ -1,8 +1,13 @@
+.POSIX:
+
 DEST = /usr/bin
-CFLAGS = -Wall
 EXES = cf fb fr ipc md npc pw
 
 all: $(EXES)
+
+options:
+	@echo "CFLAGS  = $(CFLAGS)"
+	@echo "CC      = $(CC)"
 
 clean:
 	rm -f $(EXES)
@@ -11,27 +16,27 @@ install: all
 	cp -f $(EXES) $(DEST)
 
 uninstall:
-	rm -f $(DEST)/cf $(DEST)/fb $(DEST)/fr $(DEST)/ipc $(DEST)/md \
-	    $(DEST)/npc $(DEST)/pw
+	@$(foreach EXE,$(EXES), rm -f $(DEST)/$(EXE))
 
 cf:
-	$(CC) $(CFLAGS) cf.c -o cf
+	$(CC) $(CFLAGS) $@.c -o $@
 
 fb:
-	$(CC) $(CFLAGS) fb.c -o fb
+	$(CC) $(CFLAGS) $@.c -o $@
 
 fr:
-	$(CC) $(CFLAGS) fr.c -o fr
+	$(CC) $(CFLAGS) $@.c -o $@
 
 ipc:
-	$(CC) $(CFLAGS) ipc.c -o ipc
+	$(CC) $(CFLAGS) $@.c -o $@
 
 md:
-	$(CC) $(CFLAGS) md.c -o md
+	$(CC) $(CFLAGS) $@.c -o $@
 
 npc:
-	$(CC) $(CFLAGS) npc.c -o npc
+	$(CC) $(CFLAGS) $@.c -o $@
 
 pw:
-	$(CC) $(CFLAGS) pw.c -o pw
+	$(CC) $(CFLAGS) $@.c -o $@
 
+.PHONY: all clean install uninstall
