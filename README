@@ -18,28 +18,6 @@ repo: https://github.com/raygarner/tools
 contact: ray@perfectcast.co.uk
 
 
-afn
-===
-Plaintext affine cipher. Takes a filename, mode and key as args. Works on
-text files, doesn't touch whitespace or control characters.
-
-$ cat alpha.txt
-abcdefghijlkmnopqrstuvwxyz
-$ afn alpha.txt e 5
-Xcny&1<GR]hs~+6ALWbmx%0;FQ
-$ afn alpha.txt e 5 > out.txt
-$ afn out.txt d 5
-abcdefghijklmnopqrstuvwxyz
-
-
-fr
-==
-Fischerrandom starting position generator
-
-$ fr
-b n n q r k r b
-
-
 ipc
 ===
 Calculates information from a CIDR notation IP address
@@ -53,6 +31,14 @@ Host IP Range:          192.168.0.1 -> 192.168.0.254
 Hosts per subnet:       254
 
 
+fr
+==
+Fischerrandom starting position generator
+
+$ fr
+b n n q r k r b
+
+
 pw
 ==
 Password generator using format word!word!WORD!xy. Takes a dictionary file as
@@ -60,4 +46,19 @@ an argument
 
 $ pw words.txt
 polynomial!parricides!CHRIS!56
+
+
+afn
+===
+Plaintext affine cipher. Takes a filename, mode and key as args. Works on
+text files, doesn't touch whitespace or control characters.
+(has bad rng so don't use for anything serious)
+
+$ cat alpha.txt
+abcdefghijlkmnopqrstuvwxyz
+$ afn alpha.txt e 5
+Xcny&1<GR]hs~+6ALWbmx%0;FQ
+$ afn alpha.txt e 5 > out.txt
+$ afn out.txt d 5
+abcdefghijklmnopqrstuvwxyz
 
