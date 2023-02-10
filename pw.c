@@ -6,7 +6,6 @@
 
 #define WORDCOUNT 3
 #define DIGITCOUNT 2
-#define DICTPATH "/usr/share/dict/words"
 #define MAXLEN 64
 
 enum { FALSE, TRUE };
