@@ -27,8 +27,13 @@ main(int argc, char *argv[])
 	int mon, year;
 
 	srand(time(NULL));
-	mon =  argc > 1 ? atoi(argv[1]) : rand() % 12 + 1;
-	year = argc > 2 ? atoi(argv[2]) : 2 + (rand() % 48);
+	if (argc < 3) {
+		printf("Please pass month and year as args\n");
+		printf("eg: np 10 22\n");
+		return 1;
+	}
+	mon = atoi(argv[1]);
+	year = atoi(argv[2]);
 	if (mon > 12 || mon < 1) {
 		printf("Invalid month\n");
 		return -1;
