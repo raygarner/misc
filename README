@@ -14,9 +14,6 @@ $ sudo make install
 Uninstall:
 $ sudo make uninstall
 
-repo: https://github.com/raygarner/tools
-contact: ray@perfectcast.co.uk
-
 
 ipc
 ===
