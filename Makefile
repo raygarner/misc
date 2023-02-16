@@ -1,13 +1,17 @@
 .POSIX:
 
 DEST = /usr/bin
-EXES = afn fr ipc pw np
+SRC = afn.c fr.c ipc.c pw.c np.c
+EXES = $(SRC:.c=)
 
 all: $(EXES)
 
 options:
+	@echo "DEST    = $(DEST)"
 	@echo "CFLAGS  = $(CFLAGS)"
 	@echo "CC      = $(CC)"
+	@echo "SRC     = $(SRC)"
+	@echo "EXES    = $(EXES)"
 
 clean:
 	rm -f $(EXES)
@@ -17,6 +21,12 @@ install: all
 
 uninstall:
 	@$(foreach EXE,$(EXES), rm -f $(DEST)/$(EXE))
+
+dist: clean
+	mkdir -p misc_tools-dist
+	cp -R README TODO Makefile $(SRC) misc_tools-dist
+	tar -cf - misc_tools-dist | gzip > misc_tools.tar.gz
+	rm -rf misc_tools-dist
 
 afn:
 	$(CC) $(CFLAGS) $@.c -o $@
@@ -33,4 +43,4 @@ pw:
 np:
 	$(CC) $(CFLAGS) $@.c -o $@
 
-.PHONY: all options clean install uninstall
+.PHONY: all options clean install uninstall dist
