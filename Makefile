@@ -11,11 +11,10 @@ options:
 	@echo "CFLAGS  = $(CFLAGS)"
 	@echo "CC      = $(CC)"
 	@echo "SRC     = $(SRC)"
-	@echo "COMMON  = $(COMMON)"
 	@echo "EXES    = $(EXES)"
 
 clean:
-	rm -f $(EXES)
+	rm -f $(EXES) misc_tools.tar.gz
 
 install: all
 	cp -f $(EXES) $(DEST)
