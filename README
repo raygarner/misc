@@ -59,3 +59,10 @@ $ afn alpha.txt e 5 > out.txt
 $ afn out.txt d 5
 abcdefghijklmnopqrstuvwxyz
 
+
+np
+==
+UK format number plate generator. Takes month and year as args.
+
+$ np 10 22
+KO72 BWG
