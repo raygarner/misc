@@ -11,7 +11,6 @@ options:
 	@echo "CFLAGS  = $(CFLAGS)"
 	@echo "CC      = $(CC)"
 	@echo "SRC     = $(SRC)"
-	@echo "COMMON  = $(COMMON)"
 	@echo "EXES    = $(EXES)"
 
 clean:
@@ -25,7 +24,7 @@ uninstall:
 
 dist: clean
 	mkdir -p misc_tools-dist
-	cp -R README TODO Makefile $(SRC) misc_tools-dist
+	cp -R README TODO Makefile common.h $(SRC) misc_tools-dist
 	tar -cf - misc_tools-dist | gzip > misc_tools.tar.gz
 	rm -rf misc_tools-dist
 

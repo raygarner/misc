@@ -1,0 +1,68 @@
+Abstract
+========
+Miscellaneous little CLI programs written in C with just the standard library.
+Any input is supplied as a command line argument.
+Default destination directory for installation is /usr/bin.
+If invalid args are passed then a basic usage example will be returned.
+
+Build:
+$ make
+
+Install:
+$ sudo make install
+
+Uninstall:
+$ sudo make uninstall
+
+
+ipc
+===
+Calculates information from a CIDR notation IP address
+
+$ ipc 192.168.0.1/24
+Address:                192.168.0.1
+Subnet mask:            255.255.255.0
+Subnet ID:              192.168.0.0
+Broadcast address:      192.168.0.255
+Host IP Range:          192.168.0.1 -> 192.168.0.254
+Hosts per subnet:       254
+
+
+fr
+==
+Fischerrandom starting position generator
+
+$ fr
+b n n q r k r b
+
+
+pw
+==
+Password generator using format word!word!WORD!xy. Takes a dictionary file as
+an argument
+
+$ pw words.txt
+polynomial!parricides!CHRIS!56
+
+
+afn
+===
+Plaintext affine cipher. Takes a filename, mode and key as args. Works on
+text files, doesn't touch whitespace or control characters.
+(has bad rng so don't use for anything serious)
+
+$ cat alpha.txt
+abcdefghijlkmnopqrstuvwxyz
+$ afn alpha.txt e 5
+Xcny&1<GR]hs~+6ALWbmx%0;FQ
+$ afn alpha.txt e 5 > out.txt
+$ afn out.txt d 5
+abcdefghijklmnopqrstuvwxyz
+
+
+np
+==
+UK format number plate generator. Takes month and year as args.
+
+$ np 10 22
+KO72 BWG
