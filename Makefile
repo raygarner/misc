@@ -1,8 +1,9 @@
 .POSIX:
 
 DEST = /usr/bin
-SRC = afn.c fr.c ipc.c pw.c np.c
+SRC = afn.c fr.c ipc.c pw.c np.c ts.c
 EXES = $(SRC:.c=)
+COMMON = common
 
 all: $(EXES)
 
@@ -24,7 +25,7 @@ uninstall:
 
 dist: clean
 	mkdir -p misc_tools-dist
-	cp -R README TODO Makefile $(SRC) misc_tools-dist
+	cp -R README TODO Makefile $(SRC) $(COMMON).* misc_tools-dist
 	tar -cf - misc_tools-dist | gzip > misc_tools.tar.gz
 	rm -rf misc_tools-dist
 
@@ -38,9 +39,12 @@ ipc:
 	$(CC) $(CFLAGS) $@.c -o $@
 
 pw:
-	$(CC) $(CFLAGS) $@.c -o $@
+	$(CC) $(CFLAGS) $@.c $(COMMON).c -o $@
 
 np:
 	$(CC) $(CFLAGS) $@.c -o $@
+
+ts:
+	$(CC) $(CFLAGS) $(COMMON).c $@.c -o $@
 
 .PHONY: all options clean install uninstall dist
