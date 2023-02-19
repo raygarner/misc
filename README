@@ -60,6 +60,33 @@ $ afn out.txt d 5
 abcdefghijklmnopqrstuvwxyz
 
 
+ts
+==
+Typing speed test. Takes number of words to use and dictionary file as args
+
+$ ts 4 words.txt
+word: is
+type: is
+correct
+
+word: test
+type: test
+correct
+
+word: a
+type: a
+correct
+
+word: this
+type: this
+correct
+
+average word length = 2.750000
+totalseconds = 3.000000
+cpm = 220.000000
+totalchars = 11
+80.000000 wpm
+
 np
 ==
 UK format number plate generator. Takes month and year as args.
