@@ -49,7 +49,6 @@ main(int argc, char *argv[])
 		
 		if ((f = fopen(argv[2], "r")) == NULL) {
 			printf("Dictionary '%s' does not exist\n", argv[2]);
-			fclose(f);
 			return 1;
 		} else {
 			strcpy(dictname, argv[2]);
