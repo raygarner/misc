@@ -42,7 +42,8 @@ main(int argc, char *argv[])
 		wc = atoi(argv[1]);
 		if (wc < 1) {
 			printf("Invalid word count\n");
-			printf("Please pass wordcount and dictionary file as args\n");
+			printf("Please pass wordcount and dictionary file as "
+			       "args\n");
 			printf("eg: ts 8 words.txt\n");
 			return 1;
 		}
