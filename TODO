@@ -1,2 +1,1 @@
-make get_random_word not use ones with punctuation in
 make ts print all words in one go

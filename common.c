@@ -3,6 +3,7 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int
 dict_len(const char *dictname)
@@ -15,14 +16,14 @@ dict_len(const char *dictname)
 		if (c == SEPARATE)
 			words++;
 	fclose(dict);
-	return words;
+	return words+1;
 }
 
 char 
 *get_random_word(int max, const char *dictname)
 {
 	FILE *dict = fopen(dictname, "r");
-	int target_index, current_index = 0, i;
+	int target_index, current_index = 0, i, valid = FALSE, looped = FALSE;
 	char c, *word = malloc(sizeof(char) * MAXLEN);
 
 	if (word == NULL) {
@@ -42,7 +43,30 @@ char
 			c = getc(dict);
 		current_index++;
 	}
-	fscanf(dict, "%s\n", word);
+	while (valid == FALSE) {
+		valid = TRUE;
+		fscanf(dict, "%s\n", word);
+		current_index++;
+		if (current_index == max) {
+			if (looped) {
+				printf("All words contain non alpha chars\n");
+				free(word);
+				fclose(dict);
+				exit(1);
+			}
+			current_index = 0;
+			rewind(dict);
+			looped = TRUE;
+		}
+		for (i = 0; i < strlen(word); i++) {
+			if (isalpha(word[i]) == FALSE) {
+				valid = FALSE;
+				break;
+			} else {
+				word[i] = tolower(word[i]);
+			}
+		}
+	}
 	fclose(dict);
 	return word;
 }

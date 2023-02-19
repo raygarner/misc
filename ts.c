@@ -31,9 +31,9 @@ main(int argc, char *argv[])
 	int wc = MAXWORDS, i, totalchars = 0, correctwords = 0;
 	char *word, input[MAXLEN], dictname[MAXLEN] = DICTNAME;
 	time_t start_time, end_time;
+	FILE *f;
 	double totalseconds, cpm, wpm, avglen;
 
-	srand(time(NULL));
 	if (argc < 3) {
 		printf("Please pass wordcount and dictionary file as args\n");
 		printf("eg: ts 8 words.txt\n");
@@ -46,14 +46,17 @@ main(int argc, char *argv[])
 			printf("eg: ts 8 words.txt\n");
 			return 1;
 		}
-		if (fopen(argv[2], "r") == NULL) {
+		
+		if ((f = fopen(argv[2], "r")) == NULL) {
 			printf("Dictionary '%s' does not exist\n", argv[2]);
+			fclose(f);
 			return 1;
 		} else {
-			memset(dictname, '\0', strlen(dictname));
 			strcpy(dictname, argv[2]);
+			fclose(f);
 		}
 	}
+	srand(time(NULL));
 	start_time = time(NULL);
 	for (i = 0; i < wc; i++) {
 		word = get_random_word(dict_len(dictname), dictname);
@@ -76,7 +79,7 @@ main(int argc, char *argv[])
 	printf("average word length = %f\n", avglen);
 	cpm = calc_cpm(totalchars, totalseconds);
 	wpm = calc_wpm(cpm, avglen);
-	printf("totalseconds = %f\n", totalseconds);
+	printf("totalseconds = %d\n", totalseconds);
 	printf("cpm = %f\n", cpm);
 	printf("totalchars = %d\n", totalchars);
 	printf("%f wpm\n", wpm);
