@@ -87,6 +87,7 @@ cpm = 220.000000
 totalchars = 11
 80.000000 wpm
 
+
 np
 ==
 UK format number plate generator. Takes month and year as args.
